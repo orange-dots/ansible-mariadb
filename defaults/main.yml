@@ -6,7 +6,7 @@ mariadb_service_enabled: yes
 # Current state: started | stopped
 mariadb_service_state: started
 
-# Root password
+# Root password read from ansible vault password file
 mariadb_root_password: {{ vault_mariadb_root_password }}
 
 # DBs to create
