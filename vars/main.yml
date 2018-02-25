@@ -1,0 +1,7 @@
+---
+
+# Packages (versions) to install
+mariadb_packages:
+  - mariadb-server
+  - mariadb-client
+  - python-mysqldb

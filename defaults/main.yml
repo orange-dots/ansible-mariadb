@@ -1,0 +1,50 @@
+--- # Defaults file for mariadb role
+
+# Service enabled on boot: yes | no
+mariadb_service_enabled: yes
+
+# Current state: started | stopped
+mariadb_service_state: started
+
+# Root password
+mariadb_root_password: "TEROKNOR"
+
+# DBs to create
+mariadb_databases: []
+
+# List of DB users to create
+mariadb_users: []
+
+####### /etc/mysql/my.cnf
+# Basic settings
+mariadb_user: 'mysql'
+mariadb_pid_file: '/var/run/mysqld/mysqld.pid'
+mariadb_socket: '/var/run/mysqld/mysqld.sock'
+mariadb_port: 3306
+mariadb_basedir: '/usr'
+mariadb_datadir: '/var/lib/mysql'
+mariadb_lc_messages_dir: '/usr/share/mysql'
+
+mariadb_bind_address: "127.0.0.1"
+
+# Fine Tuning
+mariadb_key_buffer_size: '16M'
+mariadb_max_allowed_packet: '128M'
+mariadb_thread_stack: '192K'
+mariadb_thread_cache_size: 8
+
+mariadb_myisam_recover_options: 'BACKUP'
+mariadb_max_connections: 100
+mariadb_table_cache: 64
+mariadb_thread_concurrency: 10
+
+### Query Cache Configuration
+mariadb_query_cache_limit: '1M'
+mariadb_query_cache_size: '16M'
+
+# Character sets
+mariadb_character_set_server: 'utf8mb4'
+mariadb_collation_server: 'utf8mb4_general_ci'
+
+# mysqldump configuration: /etc/mysql/conf.d/mysqldump.cnf
+mariadb_mysqldump_max_allowed_packet: '16M'

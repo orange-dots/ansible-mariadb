@@ -1,0 +1,10 @@
+--- # MySQL manage_dbs.yml
+
+- name: Managing MariaDB Databases
+  mysql_db:
+    collation: "{{ item.collation | default(omit) }}"
+    encoding: "{{ item.encoding | default(omit) }}"
+    name: "{{ item.name }}"
+    state: "{{ item.state | default(omit) }}"
+    target: "{{ item.target | default(omit) }}"
+  with_items: "{{ mysql_databases }}"

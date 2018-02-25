@@ -1,0 +1,37 @@
+--- # Configuring MariaDB
+
+- name: Deploying MariaDB configuration
+  template:
+    src: "{{ item }}.j2"
+    dest: "/etc/mysql/my.cnf"
+    owner: root
+    group: root
+    mode: "0644"
+  notify: restart mariadb
+  with_items:
+    - etc/mysql/mariadb.cnf
+
+- name: Setting MariaDB root password
+  mysql_user:
+    user: root
+    host: "localhost"
+    password: "{{ mariadb_root_password }}"
+
+- name: Configuring file based root access
+  template:
+    src: root/my.cnf.j2
+    dest: /root/.my.cnf
+    owner: root
+    group: root
+    mode: "0600"
+
+- name: Hardening DB - Removing anonymous users
+  mysql_user:
+    name: ""
+    host: "localhost"
+    state: absent
+
+- name: Hardening DB - Removing test DB
+  mysql_db:
+    name: test
+    state: absent

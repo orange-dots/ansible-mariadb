@@ -1,0 +1,4 @@
+--- # MySQL management masterfile
+
+- include: manage_dbs.yml
+- include: manage_users.yml

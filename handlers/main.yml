@@ -1,0 +1,21 @@
+--- # MySQL hander - roles/mysql/handlers/main.yml
+
+- name: start mariadb
+  service:
+    name: mysql
+    state: started
+
+- name: stop mariadb
+  service:
+    name: mysql
+    state: stopped
+
+- name: restart mariadb
+  service:
+    name: mysql
+    state: restarted
+
+- name: reload mariadb
+  service:
+    name: mysql
+    state: restarted

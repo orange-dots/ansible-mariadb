@@ -1,0 +1,27 @@
+--- # Test yml for mysql playbook
+
+- hosts: testhosts
+  user: ansibleuser
+  become: yes
+  connection: ssh
+  gather_facts: yes
+
+  roles:
+    - mariadb
+
+  vars:
+    ### mysql role vars
+    mariadb_root_password: 'duh'
+
+    mysql_databases:
+      - name: db1
+        encoding: utf8
+
+    mysql_users:
+      - name: user1
+        password: 'duh'
+        priv: 'db1.*:ALL'
+
+      - name: admin
+        password: 'duh'
+        priv: '*.*:ALL'

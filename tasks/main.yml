@@ -1,0 +1,13 @@
+---
+
+- include: install.yml
+  tags: ['mariadb', 'install', 'mariadb-install', 'database:sql']
+
+- include: config.yml
+  tags: ['mariadb', 'config', 'mariadb-config', 'database:sql']
+
+- include: service.yml
+  tags: ['mariadb', 'service', 'mariadb-service', 'database:sql']
+
+- include: manage.yml
+  tags: ['mariadb', 'manage', 'mariadb-manage', 'database:sql']
