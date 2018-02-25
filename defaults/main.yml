@@ -7,7 +7,7 @@ mariadb_service_enabled: yes
 mariadb_service_state: started
 
 # Root password
-mariadb_root_password: "TEROKNOR"
+mariadb_root_password: {{ vault_mariadb_root_password }}
 
 # DBs to create
 mariadb_databases: []
